@@ -64,6 +64,7 @@ function Projects() {
           label="Softball"
           name="VeloCut"
           status="In development"
+          href="https://velocut.kickingleaves.com"
           description="Multi-angle video analysis, automated highlight clips, and a recruiting profile platform for youth softball teams. Built for coaches who want more signal, and players who deserve to be seen."
           accent="#2A7A55"
         />
