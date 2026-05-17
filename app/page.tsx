@@ -77,7 +77,8 @@ function Projects() {
         <ProjectCard
           label="Fitness"
           name="PeakSeason"
-          status="Coming soon"
+          status="Live"
+          href="https://peakseason.kickingleaves.com"
           description="Sport-specific training programs designed around your season. Structured workouts, progress tracking, and programming that peaks when it counts."
           accent="#7A2A6B"
         />
@@ -90,27 +91,39 @@ function ProjectCard({
   label,
   name,
   status,
+  href,
   description,
   accent,
 }: {
   label: string
   name: string
   status: string
+  href?: string
   description: string
   accent: string
 }) {
-  return (
-    <div className="bg-[var(--color-dark)] p-12 flex flex-col gap-6">
+  const inner = (
+    <div className={`bg-[var(--color-dark)] p-12 flex flex-col gap-6 h-full ${href ? 'group' : ''}`}>
       <div className="flex items-center justify-between">
         <p className="text-xs uppercase tracking-widest text-white/40">{label}</p>
-        <span className="text-xs text-white/30 border border-white/10 rounded-full px-3 py-1">{status}</span>
+        <span className={`text-xs border rounded-full px-3 py-1 ${href ? 'text-white/60 border-white/20' : 'text-white/30 border-white/10'}`}>{status}</span>
       </div>
-      <h2 className="font-serif text-4xl md:text-5xl font-bold" style={{ color: accent }}>
+      <h2 className="font-serif text-4xl md:text-5xl font-bold group-hover:opacity-80 transition-opacity" style={{ color: accent }}>
         {name}
       </h2>
       <p className="text-white/60 leading-relaxed text-sm max-w-sm">{description}</p>
+      {href && (
+        <p className="text-xs mt-auto" style={{ color: accent }}>
+          Open app →
+        </p>
+      )}
     </div>
   )
+
+  if (href) {
+    return <a href={href} target="_blank" rel="noopener noreferrer" className="block">{inner}</a>
+  }
+  return inner
 }
 
 function About() {
