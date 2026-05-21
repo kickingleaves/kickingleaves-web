@@ -71,7 +71,8 @@ function Projects() {
         <ProjectCard
           label="Flag Football"
           name="RouteRunnr"
-          status="Coming soon"
+          status="In development"
+          href="https://routerunnr.kickingleaves.com"
           description="Live game tracking, play-by-play scoring, and stat breakdowns for youth flag football. Fast to set up, built for the sideline."
           accent="#C07A2A"
         />
